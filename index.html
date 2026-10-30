@@ -60,7 +60,12 @@ a{color:inherit}
 .ekran-tekst{grid-column:1;grid-row:1;position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:120px 0 64px max(20px,(100vw - 1200px)/2)}
 .adres-verh{font-size:14px;color:var(--tusk);margin-bottom:18px}
 .adres-verh i{font-style:normal;color:var(--lampa)}
-h1{font:800 clamp(120px,15vw,220px)/.8 var(--disp);letter-spacing:.01em;color:var(--znachok);margin-left:-.04em}
+h1{font:800 clamp(120px,15vw,220px)/.8 var(--disp);letter-spacing:.01em;color:var(--znachok);margin-left:-.04em;
+  background:linear-gradient(100deg,var(--znachok) 0 41%,#fff 47.5%,#b9c4cf 50%,#fff 52.5%,var(--znachok) 59% 100%);
+  background-size:300% 100%;background-position:100% 0;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;cursor:default}
+/* блик стали, как по опасной бритве: один раз при открытии и при наведении */
+h1.blik{animation:blik 1.7s cubic-bezier(.35,0,.25,1) both}
+@keyframes blik{from{background-position:100% 0}to{background-position:0 0}}
 .pod-h1{font:700 clamp(30px,3.1vw,44px)/1.02 var(--disp);text-transform:uppercase;letter-spacing:.02em;margin:18px 0 22px;max-width:22ch}
 .reiting{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-bottom:28px;font-size:15px;color:var(--tusk)}
 .reiting .zv{color:var(--lampa);font-weight:600;font-size:17px}
@@ -91,8 +96,20 @@ section{position:relative;scroll-margin-top:66px}
 .prais{background:var(--stena)}
 .prais-setka{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:start}
 .prais-lev{position:sticky;top:110px}
-.prais-lev .foto-prais{margin-top:36px;border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;position:relative}
-.prais-lev .foto-prais img{width:100%;height:100%;object-fit:cover}
+.britva{margin-top:8px}
+.britva svg{display:block;width:100%;height:auto;overflow:visible;filter:drop-shadow(0 0 6px rgba(244,242,234,.45)) drop-shadow(0 0 22px rgba(244,242,234,.12))}
+.britva .kontur{fill:none;stroke:var(--lampa);stroke-width:2.2;stroke-linejoin:round;stroke-linecap:round}
+.britva .ruchka{fill:var(--stena)}
+.britva .lezvie-telo{fill:rgba(244,242,234,.05)}
+.britva .kromka{fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;opacity:.55;transition:opacity .4s}
+.britva .spusk{fill:none;stroke:var(--lampa);stroke-width:1.2;opacity:.45}
+.britva .vint{fill:var(--stena);stroke:var(--lampa);stroke-width:2}
+.britva.otkryta .kromka{opacity:1;animation:kromka 1.6s ease-out 1}
+@keyframes kromka{0%{stroke-dasharray:0 400}100%{stroke-dasharray:400 0}}
+.britva-podp{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:22px;padding-top:16px;border-top:1px solid rgba(244,242,234,.12)}
+.britva-podp b{font-weight:600}
+.britva-podp small{display:block;color:var(--tusk);font-size:14px;font-weight:400;margin-top:2px}
+.britva-podp span{font:700 30px/1 var(--disp);color:var(--lampa);white-space:nowrap}
 .pelerina{height:30px;background:repeating-linear-gradient(90deg,var(--pelerina) 0 22px,#f1f1ec 22px 40px);border-radius:var(--r) var(--r) 0 0}
 .gruppa{background:var(--potolok);border-radius:0 0 var(--r) var(--r);padding:8px 30px 18px;margin-bottom:26px}
 .gruppa h3{font:700 30px/1 var(--disp);text-transform:uppercase;letter-spacing:.03em;color:var(--znachok);padding:22px 0 8px}
@@ -201,6 +218,22 @@ section{position:relative;scroll-margin-top:66px}
 .podval a{color:var(--tusk)}
 
 /* ---------- окно записи ---------- */
+.lenta figure{cursor:zoom-in}
+.lenta figure:focus-visible{outline:2px solid var(--lampa);outline-offset:3px}
+.prosmotr{position:fixed;inset:0;z-index:70;display:grid;place-items:center;background:rgba(5,5,6,0);pointer-events:none;transition:background .35s;touch-action:pan-y}
+.prosmotr[hidden]{display:none}
+.prosmotr.otkr{background:rgba(5,5,6,.93);pointer-events:auto}
+.prosmotr img{border-radius:6px;box-shadow:0 30px 90px rgba(0,0,0,.7);opacity:0;transform-origin:0 0;will-change:transform;user-select:none;-webkit-user-drag:none}
+.prosmotr.otkr img{opacity:1}
+.prosmotr button{position:absolute;border:0;cursor:pointer;color:var(--lampa);background:rgba(244,242,234,.08);border-radius:50%;width:52px;height:52px;font-size:30px;line-height:1;display:grid;place-items:center;opacity:0;transition:opacity .3s,background .2s}
+.prosmotr.otkr button{opacity:1}
+.prosmotr button:hover{background:rgba(244,242,234,.18)}
+.pr-zakryt{top:18px;right:18px}
+body.pr-otkr .panel{transform:translateY(110%)}
+.pr-nazad{left:24px;top:50%;margin-top:-26px}
+.pr-vpered{right:24px;top:50%;margin-top:-26px}
+.pr-schet{position:absolute;bottom:22px;left:0;right:0;text-align:center;font-size:14px;color:var(--tusk);opacity:0;transition:opacity .3s}
+.prosmotr.otkr .pr-schet{opacity:1}
 .okno{position:fixed;inset:0;z-index:60;display:grid;place-items:center;background:rgba(5,5,6,.72);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .25s}
 .okno.otkr{opacity:1;pointer-events:auto}
 .okno-v{width:min(440px,100% - 32px);background:var(--stena);border-radius:8px;padding:30px;transform:translateY(16px);transition:transform .3s cubic-bezier(.2,.8,.2,1);box-shadow:0 30px 80px rgba(0,0,0,.6)}
@@ -249,7 +282,7 @@ section{position:relative;scroll-margin-top:66px}
   .razdel{padding:80px 0}
   .prais-setka,.mesto-setka,.otzyvy-setka{grid-template-columns:1fr;gap:36px}
   .prais-lev{position:static}
-  .prais-lev .foto-prais{display:none}
+  .britva{margin-top:0}
   .gruppa{padding:4px 18px 10px}
   .usl b{font-size:17px}
   .usl .cena{font-size:26px}
@@ -278,6 +311,8 @@ section{position:relative;scroll-margin-top:66px}
   .panel{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:45;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(14,15,17,.92);backdrop-filter:blur(10px);border-top:1px solid rgba(244,242,234,.1);transform:translateY(110%);transition:transform .3s}
   .panel.vidna{transform:none}
   .panel .knopka{padding:15px 10px}
+  .pr-nazad,.pr-vpered{display:none!important}
+  .pr-schet::after{content:" · листайте"}
   .final-pravo{gap:24px;width:100%}
   .shest{width:48px;height:200px}
   .final-pravo .deistviya{flex:1}
@@ -342,7 +377,26 @@ section{position:relative;scroll-margin-top:66px}
         <div class="liniya"></div>
         <h2 class="zag">Одна цена за любую сложность</h2>
         <p class="zag-pod">Кроп, фейд, андеркат, канадка, помпадур — мужская стрижка любой сложности стоит 1&nbsp;000&nbsp;₽.</p>
-        <div class="foto-prais"><img src="img/process.webp" alt="Мастер ДОК закончил мужскую стрижку, клиент в зелёно-белой пелерине" width="800" height="1066" loading="lazy"></div>
+        <div class="britva" id="britva">
+          <svg viewBox="62 0 616 300" aria-hidden="true">
+            <g transform="translate(330 262)">
+              <!-- лезвие с хвостовиком: остриё смотрит вверх, после раскрытия — вниз -->
+              <g id="lezvie"><g transform="scale(.85)">
+                <path class="kontur lezvie-telo" d="M-4 -10 L34 -20 Q150 -36 262 -33 Q284 -31 286 -12 L286 10 Q285 19 274 19 L34 19 L4 12 Q-24 18 -44 34 Q-52 40 -58 32 Q-46 16 -20 4 Z"/>
+                <path class="spusk" d="M44 -9 Q150 -23 272 -20"/>
+                <path class="spusk" d="M40 12 L272 12"/>
+                <path class="kromka" d="M34 -20 Q150 -36 262 -33 Q284 -31 286 -12"/>
+                <path class="kontur" d="M-30 14 L-26 20 M-38 20 L-34 26 M-46 26 L-42 31" opacity=".6"/>
+              </g></g>
+              <!-- ручка (накладки), к концу шире -->
+              <path class="kontur ruchka" d="M-20 0 Q-20 -27 4 -28 L300 -31 Q328 -30 328 0 Q328 30 300 31 L4 28 Q-20 27 -20 0 Z"/>
+              <path class="kontur" d="M26 0 L296 0" opacity=".2"/>
+              <circle class="vint" cx="306" cy="0" r="5"/>
+              <circle class="vint" cx="0" cy="0" r="8"/>
+            </g>
+          </svg>
+          <p class="britva-podp"><b>Бритьё опасным лезвием<small>борода или голова, с уходом до и после</small></b><span>1 000 ₽</span></p>
+        </div>
       </div>
       <div>
         <div class="poyav">
@@ -507,6 +561,14 @@ section{position:relative;scroll-margin-top:66px}
   <button class="knopka" data-zapis>Записаться</button>
 </div>
 
+<div class="prosmotr" id="prosmotr" role="dialog" aria-modal="true" aria-label="Работы мастеров крупно" hidden>
+  <img id="pr-foto" alt="">
+  <button class="pr-zakryt" id="pr-zakryt" aria-label="Закрыть">×</button>
+  <button class="pr-nazad" id="pr-nazad" aria-label="Предыдущее фото">‹</button>
+  <button class="pr-vpered" id="pr-vpered" aria-label="Следующее фото">›</button>
+  <span class="pr-schet" id="pr-schet"></span>
+</div>
+
 <div class="okno" id="okno" role="dialog" aria-modal="true" aria-labelledby="okno-zag">
   <div class="okno-v">
     <button class="zakryt" id="zakryt" aria-label="Закрыть">×</button>
@@ -559,7 +621,7 @@ section{position:relative;scroll-margin-top:66px}
   document.querySelectorAll('[data-zapis]').forEach(b => b.addEventListener('click', otkryt));
   document.getElementById('zakryt').addEventListener('click', zakryt);
   okno.addEventListener('click', e => { if (e.target === okno) zakryt(); });
-  addEventListener('keydown', e => { if (e.key === 'Escape') zakryt(); });
+  addEventListener('keydown', e => { if (e.key === 'Escape' && okno.classList.contains('otkr')) zakryt(); });
 
   // появление при прокрутке, у ленты работ — по очереди
   const nab = new IntersectionObserver(zap => zap.forEach(z => {
@@ -570,6 +632,119 @@ section{position:relative;scroll-margin-top:66px}
     el.classList.add('vidno'); nab.unobserve(el);
   }), { threshold: .15, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.poyav').forEach(el => nab.observe(el));
+
+  const tiho = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // блик стали по «ДОК»: при открытии и при наведении
+  const h1 = document.querySelector('h1');
+  const blik = () => { h1.classList.remove('blik'); void h1.offsetWidth; h1.classList.add('blik'); };
+  if (!tiho) { setTimeout(blik, 600); h1.addEventListener('mouseenter', blik); }
+
+  // опасная бритва раскрывается по мере прокрутки прайса
+  const britva = document.getElementById('britva'), lezvie = document.getElementById('lezvie');
+  const praisLev = document.querySelector('.prais-lev'), prais = document.getElementById('prais');
+  const UGOL = -165;
+  let zhdu = false;
+  const raskryt = () => {
+    zhdu = false;
+    let d;
+    if (getComputedStyle(praisLev).position === 'sticky') {
+      const r = prais.getBoundingClientRect();
+      d = (innerHeight * .35 - r.top) / (r.height * .6);
+    } else {
+      const r = britva.getBoundingClientRect();
+      d = (innerHeight * .85 - r.top) / (innerHeight * .5);
+    }
+    d = Math.min(1, Math.max(0, d));
+    const e = d < .5 ? 2 * d * d : 1 - Math.pow(-2 * d + 2, 2) / 2;
+    lezvie.setAttribute('transform', `rotate(${UGOL * e})`);
+    britva.classList.toggle('otkryta', d >= 1);
+  };
+  if (tiho) { lezvie.setAttribute('transform', `rotate(${UGOL})`); britva.classList.add('otkryta'); }
+  else {
+    addEventListener('scroll', () => { if (!zhdu) { zhdu = true; requestAnimationFrame(raskryt); } }, { passive: true });
+    raskryt();
+  }
+
+  // просмотр работ крупно: фото вырастает из плитки, листается стрелками и свайпом
+  const prosmotr = document.getElementById('prosmotr'), prFoto = document.getElementById('pr-foto');
+  const prSchet = document.getElementById('pr-schet');
+  const plitki = [...document.querySelectorAll('.lenta figure')];
+  let tek = -1, otkudaPr = null;
+  const razmerKadra = (img) => {
+    const k = Math.min(Math.min(innerWidth * .92, 760) / img.naturalWidth, innerHeight * .84 / img.naturalHeight);
+    return [img.naturalWidth * k, img.naturalHeight * k];
+  };
+  const pokazat = (i, sPlitki) => {
+    tek = (i + plitki.length) % plitki.length;
+    const malo = plitki[tek].querySelector('img');
+    const [w, h] = razmerKadra(malo);
+    prFoto.src = malo.currentSrc || malo.src;
+    prFoto.alt = malo.alt;
+    prFoto.style.width = w + 'px'; prFoto.style.height = h + 'px';
+    prSchet.textContent = `${tek + 1} из ${plitki.length}`;
+    if (sPlitki && !tiho) {
+      // FLIP: ставим фото на место плитки и отпускаем в центр
+      const r = malo.getBoundingClientRect();
+      const x = (innerWidth - w) / 2, y = (innerHeight - h) / 2;
+      prFoto.style.transition = 'none';
+      prFoto.style.transform = `translate(${r.left - x}px, ${r.top - y}px) scale(${r.width / w}, ${r.height / h})`;
+      void prFoto.offsetWidth;
+      prFoto.style.transition = 'transform .5s cubic-bezier(.2,.8,.2,1), opacity .2s';
+      prFoto.style.transform = 'none';
+    } else {
+      prFoto.style.transition = 'none'; prFoto.style.transform = 'none';
+    }
+  };
+  const otkrytPr = (i) => {
+    otkudaPr = document.activeElement;
+    prosmotr.hidden = false;
+    document.documentElement.style.overflow = 'hidden';
+    document.body.classList.add('pr-otkr');
+    pokazat(i, true);
+    requestAnimationFrame(() => prosmotr.classList.add('otkr'));
+    document.getElementById('pr-zakryt').focus({ preventScroll: true });
+  };
+  const zakrytPr = () => {
+    const malo = plitki[tek].querySelector('img'), r = malo.getBoundingClientRect();
+    const fr = prFoto.getBoundingClientRect();
+    if (!tiho && r.bottom > 0 && r.top < innerHeight) {
+      prFoto.style.transition = 'transform .4s cubic-bezier(.4,0,.2,1)';
+      prFoto.style.transform = `translate(${r.left - fr.left}px, ${r.top - fr.top}px) scale(${r.width / fr.width}, ${r.height / fr.height})`;
+    }
+    prosmotr.classList.remove('otkr');
+    document.documentElement.style.overflow = '';
+    document.body.classList.remove('pr-otkr');
+    setTimeout(() => { prosmotr.hidden = true; }, tiho ? 0 : 400);
+    otkudaPr && otkudaPr.focus({ preventScroll: true });
+  };
+  const listat = (shag) => {
+    prFoto.style.transition = 'opacity .15s'; prFoto.style.opacity = 0;
+    setTimeout(() => { pokazat(tek + shag, false); prFoto.style.opacity = ''; }, 150);
+  };
+  plitki.forEach((f, i) => {
+    f.tabIndex = 0; f.setAttribute('role', 'button');
+    f.setAttribute('aria-label', 'Открыть фото крупно: ' + f.querySelector('img').alt);
+    f.addEventListener('click', () => otkrytPr(i));
+    f.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); otkrytPr(i); } });
+  });
+  document.getElementById('pr-zakryt').addEventListener('click', zakrytPr);
+  document.getElementById('pr-nazad').addEventListener('click', () => listat(-1));
+  document.getElementById('pr-vpered').addEventListener('click', () => listat(1));
+  prosmotr.addEventListener('click', e => { if (e.target === prosmotr && !bylSvaip) zakrytPr(); });
+  addEventListener('keydown', e => {
+    if (prosmotr.hidden) return;
+    if (e.key === 'Escape') zakrytPr();
+    if (e.key === 'ArrowLeft') listat(-1);
+    if (e.key === 'ArrowRight') listat(1);
+  });
+  let startX = null, bylSvaip = false;
+  prosmotr.addEventListener('pointerdown', e => { startX = e.clientX; bylSvaip = false; });
+  prosmotr.addEventListener('pointerup', e => {
+    if (startX === null) return;
+    const dx = e.clientX - startX; startX = null;
+    if (Math.abs(dx) > 50) { bylSvaip = true; listat(dx < 0 ? 1 : -1); }
+  });
 
 })();
 </script>
