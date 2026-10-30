@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Барбершоп ДОК — мужские стрижки и бритьё в Ростове</title>
+<meta name="description" content="Барбершоп ДОК на Северном: мужские и детские стрижки, бритьё опасным лезвием, камуфляж седины. Бульвар Комарова, 20В/9А. Ежедневно 10:00–21:00.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0e0f11">
+<link rel="preload" as="image" href="img/hero.webp" media="(min-width: 821px)">
+<link rel="preload" as="image" href="img/hero-m.webp" media="(max-width: 820px)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230e0f11'/%3E%3Ctext x='32' y='45' font-family='Arial Narrow,Arial' font-weight='700' font-size='30' text-anchor='middle' fill='%23e7dcc2'%3E%D0%94%D0%9E%D0%9A%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@500;700;800&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --potolok:#0e0f11;   /* чёрный потолок зала */
+  --stena:#1a1c1f;     /* тёмная стена */
+  --beton:#9aa0a6;     /* серая штукатурка */
+  --lampa:#f4f2ea;     /* белый свет линейных ламп */
+  --pelerina:#1f7356;  /* зелёная полоса пелерины */
+  --dub:#b98049;       /* дуб стойки */
+  --znachok:#e7dcc2;   /* бумага значка ДОК */
+  --text:#ecebe6;
+  --tusk:#a7a9ad;
+  --r:4px;
+  --disp:'Alumni Sans', 'Arial Narrow', sans-serif;
+  --body:'Golos Text', system-ui, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--potolok);color:var(--text);font:400 17px/1.55 var(--body);overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{width:min(1200px,100% - 40px);margin-inline:auto}
+
+/* ---------- шапка ---------- */
+.shapka{position:fixed;inset:0 0 auto;z-index:40;display:flex;align-items:center;gap:28px;padding:14px max(20px,(100% - 1200px)/2);transition:background .3s, backdrop-filter .3s}
+.shapka.temno{background:rgba(14,15,17,.86);backdrop-filter:blur(10px)}
+.znak{display:flex;align-items:center;gap:10px;text-decoration:none}
+.znak b{font:800 34px/1 var(--disp);letter-spacing:.04em;color:var(--znachok)}
+.znak small{font-size:12px;line-height:1.2;color:var(--tusk);text-transform:lowercase}
+.menu{display:flex;gap:26px;margin-left:auto}
+.menu a{text-decoration:none;font-size:15px;color:var(--tusk);transition:color .2s}
+.menu a:hover{color:var(--lampa)}
+.shapka .tel{text-decoration:none;font-weight:500;font-size:15px;white-space:nowrap}
+.knopka{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;cursor:pointer;font:600 16px/1 var(--body);text-decoration:none;padding:16px 26px;border-radius:var(--r);background:var(--lampa);color:var(--potolok);transition:transform .15s, box-shadow .25s, background .2s}
+.knopka:hover{box-shadow:0 0 0 1px var(--lampa),0 0 28px rgba(244,242,234,.35)}
+.knopka:active{transform:scale(.97)}
+.knopka.kontur{background:transparent;color:var(--lampa);box-shadow:inset 0 0 0 1px rgba(244,242,234,.4)}
+.knopka.kontur:hover{box-shadow:inset 0 0 0 1px var(--lampa)}
+.shapka .knopka{padding:12px 18px;font-size:15px}
+
+/* ---------- первый экран ---------- */
+.ekran{position:relative;min-height:100svh;display:grid;grid-template-columns:minmax(0,46fr) minmax(0,54fr);overflow:hidden;isolation:isolate}
+.ekran-foto{position:relative;grid-column:2;grid-row:1}
+.ekran-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.ekran-foto::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,var(--potolok) 0%,rgba(14,15,17,.55) 22%,rgba(14,15,17,0) 55%),linear-gradient(0deg,rgba(14,15,17,.6),rgba(14,15,17,0) 35%)}
+.ekran-tekst{grid-column:1;grid-row:1;position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:120px 0 64px max(20px,(100vw - 1200px)/2)}
+.adres-verh{font-size:14px;color:var(--tusk);margin-bottom:18px}
+.adres-verh i{font-style:normal;color:var(--lampa)}
+h1{font:800 clamp(120px,15vw,220px)/.8 var(--disp);letter-spacing:.01em;color:var(--znachok);margin-left:-.04em}
+.pod-h1{font:700 clamp(30px,3.1vw,44px)/1.02 var(--disp);text-transform:uppercase;letter-spacing:.02em;margin:18px 0 22px;max-width:22ch}
+.reiting{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-bottom:28px;font-size:15px;color:var(--tusk)}
+.reiting .zv{color:var(--lampa);font-weight:600;font-size:17px}
+.reiting .zv span{color:#f2c94c;letter-spacing:1px}
+.nagrada{display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 8px;border-radius:30px;background:rgba(231,220,194,.1);color:var(--znachok);font-size:13px;white-space:nowrap}
+.nagrada::before{content:"";width:18px;height:18px;border-radius:50%;background:radial-gradient(circle at 50% 40%,#f6e3a6,#c9a24a 70%)}
+.ceny-verh{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:0;margin-bottom:30px;border-top:1px solid rgba(244,242,234,.14);border-bottom:1px solid rgba(244,242,234,.14)}
+.ceny-verh div{padding:14px 22px 14px 0;margin-right:22px;border-right:1px solid rgba(244,242,234,.14)}
+.ceny-verh div:last-child{border-right:0;margin-right:0}
+.ceny-verh span{display:block;font-size:13px;color:var(--tusk)}
+.ceny-verh b{font:700 30px/1.1 var(--disp);color:var(--lampa)}
+.deistviya{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.seichas{margin-top:22px;font-size:14px;color:var(--tusk);display:flex;align-items:center;gap:8px}
+.seichas::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--tusk)}
+.seichas.otkryto::before{background:#4fd18b;box-shadow:0 0 10px #4fd18b}
+
+/* световые линии — как лампы на их потолке */
+
+/* ---------- общие разделы ---------- */
+section{position:relative;scroll-margin-top:66px}
+.razdel{padding:120px 0}
+.zag{font:800 clamp(52px,7vw,96px)/.86 var(--disp);text-transform:uppercase;color:var(--lampa);letter-spacing:.005em}
+.zag-pod{color:var(--tusk);max-width:52ch;margin-top:16px}
+.liniya{height:4px;width:140px;border-radius:2px;background:var(--lampa);box-shadow:0 0 18px rgba(244,242,234,.5);margin-bottom:28px;transform:scaleX(0);transform-origin:left;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.vidno .liniya{transform:scaleX(1)}
+
+/* ---------- прайс ---------- */
+.prais{background:var(--stena)}
+.prais-setka{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:start}
+.prais-lev{position:sticky;top:110px}
+.prais-lev .foto-prais{margin-top:36px;border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;position:relative}
+.prais-lev .foto-prais img{width:100%;height:100%;object-fit:cover}
+.pelerina{height:30px;background:repeating-linear-gradient(90deg,var(--pelerina) 0 22px,#f1f1ec 22px 40px);border-radius:var(--r) var(--r) 0 0}
+.gruppa{background:var(--potolok);border-radius:0 0 var(--r) var(--r);padding:8px 30px 18px;margin-bottom:26px}
+.gruppa h3{font:700 30px/1 var(--disp);text-transform:uppercase;letter-spacing:.03em;color:var(--znachok);padding:22px 0 8px}
+.usl{display:grid;grid-template-columns:1fr auto;gap:4px 24px;padding:18px 0;border-bottom:1px solid rgba(244,242,234,.09)}
+.usl:last-child{border-bottom:0}
+.usl b{font-weight:600;font-size:18px}
+.usl .cena{font:700 30px/1 var(--disp);color:var(--lampa);white-space:nowrap;align-self:start}
+.usl p{grid-column:1/-1;font-size:15px;color:var(--tusk);max-width:56ch}
+.usl{transition:background .2s}
+.usl:hover b{color:var(--lampa)}
+.esche{font-size:15px;color:var(--tusk);margin-top:6px}
+.esche b{color:var(--text);font-weight:500}
+
+/* ---------- работы ---------- */
+.raboty-verh{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:48px}
+.lenta{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.lenta figure{position:relative;overflow:hidden;border-radius:var(--r);background:var(--stena);aspect-ratio:3/4}
+.lenta .f1{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+.lenta img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.2,1),filter .4s;filter:grayscale(.15)}
+.lenta figure:hover img{transform:scale(1.05);filter:none}
+.lenta figure::after{content:"";position:absolute;left:14px;right:14px;top:12px;height:3px;border-radius:2px;background:var(--lampa);box-shadow:0 0 14px rgba(244,242,234,.7);opacity:0;transition:opacity .25s}
+.lenta figure:hover::after{opacity:1}
+.mesto .zag{font-size:clamp(48px,5.2vw,74px)}
+
+/* ---------- место ---------- */
+.mesto{background:var(--stena);overflow:hidden}
+.mesto-setka{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:56px;align-items:center}
+.mesto-foto{position:relative;height:640px}
+.mesto-foto figure{position:absolute;overflow:hidden;border-radius:var(--r)}
+.mesto-foto img{width:100%;height:100%;object-fit:cover}
+.mesto-foto .m1{left:0;top:0;width:62%;height:100%}
+.mesto-foto .m2{right:0;top:0;width:34%;height:48%}
+.mesto-foto .m3{right:0;bottom:0;width:34%;height:48%}
+.mesto-foto figcaption{position:absolute;left:12px;bottom:12px;right:12px;font-size:13px;color:var(--lampa);text-shadow:0 1px 8px rgba(0,0,0,.8)}
+.fakty{list-style:none;margin-top:34px;display:grid;gap:0}
+.fakty li{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:16px 0;border-top:1px solid rgba(244,242,234,.1);font-size:16px}
+.fakty li span{color:var(--tusk);font-size:14px;padding-top:2px}
+
+/* ---------- дети ---------- */
+.deti{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:var(--znachok);color:#1c1a16}
+.deti-foto{min-height:520px;position:relative}
+.deti-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%}
+.deti-tekst{padding:90px max(20px,(100vw - 1200px)/2) 90px 64px;display:flex;flex-direction:column;justify-content:center}
+.deti .zag{color:#1c1a16}
+.deti p{max-width:44ch;margin-top:18px;font-size:18px}
+.deti .cena-deti{margin-top:28px;font:800 64px/1 var(--disp);color:var(--pelerina)}
+.deti .cena-deti small{display:block;font:500 15px/1.4 var(--body);color:#5b5548}
+.deti .knopka{margin-top:28px;align-self:start;background:#1c1a16;color:var(--znachok)}
+
+/* ---------- отзывы ---------- */
+.otzyvy-setka{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:64px;align-items:start}
+.aspekty{margin-top:36px;display:grid;gap:18px}
+.aspekt div{display:flex;justify-content:space-between;font-size:15px;margin-bottom:7px}
+.aspekt div span{color:var(--tusk)}
+.aspekt i{display:block;height:4px;border-radius:2px;background:rgba(244,242,234,.1);overflow:hidden}
+.aspekt i::after{content:"";display:block;height:100%;width:var(--p);background:var(--lampa);box-shadow:0 0 10px rgba(244,242,234,.6);transform:scaleX(0);transform-origin:left;transition:transform 1.2s cubic-bezier(.2,.8,.2,1) .2s}
+.vidno .aspekt i::after{transform:scaleX(1)}
+.citaty{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.citata{background:var(--stena);border-radius:var(--r);padding:30px;display:flex;flex-direction:column;gap:18px}
+.citata:first-child{grid-column:1/-1;background:transparent;box-shadow:inset 0 0 0 1px rgba(244,242,234,.14)}
+.citata:first-child q{font-size:22px;line-height:1.45}
+.citata q{quotes:none;font-size:17px}
+.citata .kto{margin-top:auto;font-size:14px;color:var(--tusk)}
+.citata .kto b{color:var(--text);font-weight:500}
+.vse-otzyvy{display:inline-block;margin-top:26px;color:var(--lampa);font-size:15px;text-underline-offset:4px}
+
+/* ---------- контакты ---------- */
+.kontakty{background:var(--stena);padding:0}
+.kontakty-setka{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);min-height:600px}
+.kontakty-tekst{padding:100px 56px 100px max(20px,(100vw - 1200px)/2)}
+.kontakty-tekst .adres{font:700 36px/1.05 var(--disp);text-transform:uppercase;margin-top:26px;color:var(--lampa)}
+.kontakty-tekst .kak{color:var(--tusk);font-size:15px;margin-top:10px;max-width:40ch}
+.stroki{margin:30px 0 34px;display:grid;gap:14px}
+.stroki a,.stroki div{display:grid;grid-template-columns:110px 1fr;gap:14px;text-decoration:none;font-size:17px}
+.stroki span{color:var(--tusk);font-size:14px;padding-top:2px}
+.stroki a:hover b{color:var(--lampa)}
+.stroki b{font-weight:500}
+.karta{position:relative;background:#222;overflow:hidden}
+.karta img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.karta::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(14,15,17,.85),rgba(14,15,17,0) 55%)}
+.karta .marshrut{position:absolute;z-index:2;left:32px;right:32px;bottom:32px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.karta .marshrut span{font-size:15px;color:var(--lampa);max-width:30ch}
+
+/* ---------- шейдеры: зеркало на фото зала, барбер-столб ---------- */
+.ekran-foto canvas{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity .8s}
+.ekran-foto canvas.gotov{opacity:1}
+.podskazka{position:absolute;z-index:3;right:28px;bottom:26px;font-size:13px;color:var(--lampa);opacity:0;transition:opacity .6s;pointer-events:none;text-shadow:0 1px 8px rgba(0,0,0,.8)}
+.podskazka.vidna{opacity:.85}
+.shest{position:relative;width:64px;height:300px;flex:none;border-radius:32px;overflow:hidden;box-shadow:0 0 0 6px #2a2c30,0 0 0 7px rgba(244,242,234,.15),0 0 60px rgba(31,115,86,.35);
+  background:repeating-linear-gradient(-55deg,var(--pelerina) 0 22px,#f1f1ec 22px 44px);background-size:100% 152px;animation:shest 2.4s linear infinite}
+@keyframes shest{to{background-position:0 152px}}
+.shest canvas{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity .6s}
+.shest canvas.gotov{opacity:1}
+.shest.gpu{animation:none}
+.shest::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(90deg,rgba(0,0,0,.55),rgba(255,255,255,.18) 38%,rgba(255,255,255,.05) 55%,rgba(0,0,0,.6))}
+.final-pravo{display:flex;align-items:center;gap:48px}
+
+/* ---------- финал ---------- */
+.final{padding:120px 0;text-align:left;overflow:hidden}
+.final .wrap{display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap}
+.final .zag{max-width:12ch}
+.final .deistviya{max-width:420px}
+.podval{border-top:1px solid rgba(244,242,234,.08);padding:34px 0 40px;font-size:14px;color:var(--tusk)}
+.podval .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.podval img{width:74px;height:74px;border-radius:50%;object-fit:cover}
+.podval a{color:var(--tusk)}
+
+/* ---------- окно записи ---------- */
+.okno{position:fixed;inset:0;z-index:60;display:grid;place-items:center;background:rgba(5,5,6,.72);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .25s}
+.okno.otkr{opacity:1;pointer-events:auto}
+.okno-v{width:min(440px,100% - 32px);background:var(--stena);border-radius:8px;padding:30px;transform:translateY(16px);transition:transform .3s cubic-bezier(.2,.8,.2,1);box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.okno.otkr .okno-v{transform:none}
+.okno h3{font:800 44px/.9 var(--disp);text-transform:uppercase;color:var(--lampa)}
+.okno p{color:var(--tusk);font-size:15px;margin:10px 0 22px}
+.kanaly{display:grid;gap:10px}
+.kanaly a{display:flex;align-items:center;gap:14px;padding:15px 16px;border-radius:var(--r);background:var(--potolok);text-decoration:none;transition:box-shadow .2s}
+.kanaly a:hover{box-shadow:inset 0 0 0 1px rgba(244,242,234,.4)}
+.kanaly svg{width:26px;height:26px;flex:none}
+.kanaly b{font-weight:500}
+.kanaly small{display:block;color:var(--tusk);font-size:13px}
+.zakryt{float:right;background:none;border:0;color:var(--tusk);font-size:28px;line-height:1;cursor:pointer;margin:-10px -8px 0 0;padding:6px}
+
+/* ---------- панель на телефоне ---------- */
+.panel{display:none}
+
+/* ---------- появление ---------- */
+.poyav{opacity:0;transform:translateY(22px);transition:opacity .8s, transform .8s cubic-bezier(.2,.8,.2,1)}
+.poyav.vidno{opacity:1;transform:none}
+.lenta figure.poyav{transform:scale(.96)}
+.lenta figure.poyav.vidno{transform:none}
+
+@media (max-width:1100px){
+  .menu{display:none}
+}
+@media (max-width:820px){
+  body{font-size:16px}
+  .shapka{padding:12px 16px;gap:12px}
+  .shapka .tel{display:none}
+  .shapka .knopka{margin-left:auto;padding:11px 14px}
+  .ekran{display:block;min-height:auto}
+  .ekran-foto{height:54svh;min-height:360px}
+  .ekran-foto img{object-position:50% 70%}
+  .ekran-foto::after{background:linear-gradient(0deg,var(--potolok) 0%,rgba(14,15,17,.3) 40%,rgba(14,15,17,.2) 75%,rgba(14,15,17,.7) 100%)}
+  .ekran-tekst{padding:0 16px 40px;margin-top:-118px}
+  h1{font-size:112px}
+  .pod-h1{font-size:28px;margin:10px 0 16px}
+  .reiting{margin-bottom:22px}
+  .ceny-verh{grid-template-columns:repeat(3,minmax(0,1fr));width:100%}
+  .ceny-verh div{padding:12px 10px 12px 0;margin-right:10px}
+  .ceny-verh b{font-size:26px}
+  .ceny-verh span{font-size:12px}
+  .deistviya .knopka{flex:1 1 100%}
+  .wrap{width:calc(100% - 32px)}
+  .razdel{padding:80px 0}
+  .prais-setka,.mesto-setka,.otzyvy-setka{grid-template-columns:1fr;gap:36px}
+  .prais-lev{position:static}
+  .prais-lev .foto-prais{display:none}
+  .gruppa{padding:4px 18px 10px}
+  .usl b{font-size:17px}
+  .usl .cena{font-size:26px}
+  .lenta{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .lenta .f1{grid-row:auto;aspect-ratio:4/5}
+  .mesto-foto{height:auto;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .mesto-foto figure{position:relative;left:auto;right:auto;top:auto;bottom:auto;width:auto!important;height:auto!important}
+  .mesto-foto .m1{grid-column:1/-1;aspect-ratio:4/3}
+  .mesto-foto .m2,.mesto-foto .m3{aspect-ratio:3/4}
+  .fakty li{grid-template-columns:110px 1fr;gap:12px}
+  .deti{grid-template-columns:1fr}
+  .deti-foto{min-height:400px}
+  .deti-foto img{object-position:50% 72%}
+  .deti-tekst{padding:56px 16px 64px}
+  .deti .cena-deti{font-size:54px}
+  .citaty{grid-template-columns:1fr}
+  .citata{padding:22px}
+  .citata:first-child q{font-size:19px}
+  .kontakty-setka{grid-template-columns:1fr}
+  .kontakty-tekst{padding:72px 16px 40px}
+  .karta{height:440px}
+  .karta .marshrut{left:16px;right:16px;bottom:20px}
+  .karta .marshrut .knopka{flex:1 1 100%}
+  .final{padding:80px 0 120px}
+  .podval{padding-bottom:110px}
+  .panel{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:45;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(14,15,17,.92);backdrop-filter:blur(10px);border-top:1px solid rgba(244,242,234,.1);transform:translateY(110%);transition:transform .3s}
+  .panel.vidna{transform:none}
+  .panel .knopka{padding:15px 10px}
+  .final-pravo{gap:24px;width:100%}
+  .shest{width:48px;height:200px}
+  .final-pravo .deistviya{flex:1}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .poyav{opacity:1;transform:none}
+  .liniya{transform:none}
+  .aspekt i::after{transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="shapka" id="shapka">
+  <a class="znak" href="#verh" aria-label="Барбершоп ДОК — наверх"><b>ДОК</b><small>барбершоп<br>с 2023 года</small></a>
+  <nav class="menu" aria-label="Разделы">
+    <a href="#prais">Цены</a>
+    <a href="#raboty">Работы</a>
+    <a href="#mesto">Место</a>
+    <a href="#otzyvy">Отзывы</a>
+    <a href="#kontakty">Как найти</a>
+  </nav>
+  <a class="tel" href="tel:+79889991556">+7 988 999-15-56</a>
+  <button class="knopka" data-zapis>Записаться</button>
+</header>
+
+<main id="verh">
+  <section class="ekran">
+    <div class="ekran-foto">
+      <picture>
+        <source media="(max-width:820px)" srcset="img/hero-m.webp">
+        <img src="img/hero.webp" alt="Зал барбершопа ДОК: три кресла с зелёно-белыми пелеринами, белые световые линии на чёрном потолке" width="1280" height="960" fetchpriority="high">
+      </picture>
+      <span class="podskazka" id="podskazka">Ведите мышью — это зеркало барбера</span>
+    </div>
+    <div class="ekran-tekst">
+      <p class="adres-verh">Ростов, Северный — <i>бульвар Комарова, 20В/9А</i></p>
+      <h1>ДОК</h1>
+      <p class="pod-h1">Мужские стрижки и&nbsp;бритьё опасным лезвием</p>
+      <div class="reiting">
+        <span class="zv"><span>★★★★★</span> 5,0</span>
+        <span>385 оценок и 260 отзывов на Яндекс Картах</span>
+        <span class="nagrada">Хорошее место 2026</span>
+      </div>
+      <div class="ceny-verh">
+        <div><span>Стрижка</span><b>1 000 ₽</b></div>
+        <div><span>Бритьё шаветкой</span><b>1 000 ₽</b></div>
+        <div><span>Детская</span><b>800 ₽</b></div>
+      </div>
+      <div class="deistviya">
+        <button class="knopka" data-zapis>Записаться на стрижку</button>
+        <a class="knopka kontur" href="tel:+79889991556">Позвонить</a>
+      </div>
+      <p class="seichas" id="seichas">Ежедневно 10:00–21:00</p>
+    </div>
+  </section>
+
+  <section class="razdel prais" id="prais">
+    <div class="wrap prais-setka">
+      <div class="prais-lev poyav">
+        <div class="liniya"></div>
+        <h2 class="zag">Одна цена за любую сложность</h2>
+        <p class="zag-pod">Кроп, фейд, андеркат, канадка, помпадур — мужская стрижка любой сложности стоит 1&nbsp;000&nbsp;₽.</p>
+        <div class="foto-prais"><img src="img/process.webp" alt="Мастер ДОК закончил мужскую стрижку, клиент в зелёно-белой пелерине" width="800" height="1066" loading="lazy"></div>
+      </div>
+      <div>
+        <div class="poyav">
+          <div class="pelerina" aria-hidden="true"></div>
+          <div class="gruppa">
+            <h3>Стрижки</h3>
+            <div class="usl"><b>Мужская стрижка</b><span class="cena">1 000 ₽</span><p>Любой сложности: кроп, полубокс, бокс, андеркат, канадка, фейд, цезарь, помпадур, гаврош, каре, гранж.</p></div>
+            <div class="usl"><b>Детская стрижка, 6–12 лет</b><span class="cena">800 ₽</span><p>Любой сложности. Мастера умеют договориться даже с теми, кто стричься не любит.</p></div>
+            <div class="usl"><b>Окантовка</b><span class="cena">300 ₽</span><p>Чёткие линии на границе причёски — освежить форму между стрижками.</p></div>
+          </div>
+        </div>
+        <div class="poyav">
+          <div class="pelerina" aria-hidden="true"></div>
+          <div class="gruppa">
+            <h3>Борода и бритьё</h3>
+            <div class="usl"><b>Бритьё опасным лезвием — борода</b><span class="cena">1 000 ₽</span><p>Шаветка и обязательный комплекс ухода до и после бритья.</p></div>
+            <div class="usl"><b>Бритьё головы</b><span class="cena">1 000 ₽</span><p>Т-образным станком, с тем же комплексом уходовых процедур.</p></div>
+            <div class="usl"><b>Моделирование бороды</b><span class="cena">800 ₽</span><p>Форма и окантовка — ножницы, шейвер, триммер, машинка.</p></div>
+          </div>
+        </div>
+        <div class="poyav">
+          <div class="pelerina" aria-hidden="true"></div>
+          <div class="gruppa">
+            <h3>Камуфляж седины</h3>
+            <div class="usl"><b>Борода</b><span class="cena">800 ₽</span><p>Краска наносится кистью за пару минут, выдержка 5–15 минут — по желаемому эффекту.</p></div>
+            <div class="usl"><b>Голова</b><span class="cena">800 ₽</span><p>Мягкие щадящие составы убирают контраст между седыми и тёмными волосами — выглядит естественно.</p></div>
+          </div>
+        </div>
+        <p class="esche poyav">Ещё в ДОК: <b>уход за лицом, пилинг, мытьё головы</b>. Действует дисконтная система скидок.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="razdel" id="raboty">
+    <div class="wrap">
+      <div class="raboty-verh poyav">
+        <div>
+          <div class="liniya"></div>
+          <h2 class="zag">Работы мастеров</h2>
+        </div>
+        <p class="zag-pod" style="margin:0">Снято в зале ДОК сразу после стрижки.</p>
+      </div>
+      <div class="lenta">
+        <figure class="f1 poyav"><img src="img/work-1.webp" alt="Укладка с объёмом и оформленная борода" width="700" height="952" loading="lazy"></figure>
+        <figure class="f2 poyav"><img src="img/work-2.webp" alt="Текстурная стрижка с короткими висками" width="700" height="933" loading="lazy"></figure>
+        <figure class="f3 poyav"><img src="img/work-3.webp" alt="Стрижка с ровной линией чёлки" width="700" height="700" loading="lazy"></figure>
+        <figure class="f4 poyav"><img src="img/work-4.webp" alt="Кудрявая стрижка с плавным переходом на висках" width="474" height="842" loading="lazy"></figure>
+        <figure class="f5 poyav"><img src="img/work-5.webp" alt="Короткая мужская стрижка, вид сбоку" width="700" height="933" loading="lazy"></figure>
+        <figure class="f6 poyav"><img src="img/work-6.webp" alt="Короткая стрижка и аккуратная щетина" width="700" height="1242" loading="lazy"></figure>
+        <figure class="f7 poyav"><img src="img/work-7.webp" alt="Удлинённая стрижка с пробором" width="700" height="1047" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="razdel mesto" id="mesto">
+    <div class="wrap mesto-setka">
+      <div class="mesto-foto poyav">
+        <figure class="m1"><img src="img/zal.webp" alt="Стойка ресепшена из дуба с логотипом и зал с линейным светом" width="900" height="1200" loading="lazy"><figcaption>Зал и стойка</figcaption></figure>
+        <figure class="m2"><img src="img/mural.webp" alt="Роспись на стене — барбер с бородой" width="700" height="1242" loading="lazy" style="object-position:50% 20%"></figure>
+        <figure class="m3"><img src="img/kosmetika.webp" alt="Витрина средств для укладки у стойки" width="700" height="933" loading="lazy"><figcaption>Средства для укладки</figcaption></figure>
+      </div>
+      <div class="poyav">
+        <div class="liniya"></div>
+        <h2 class="zag">Атмосфера, за которой возвращаются</h2>
+        <p class="zag-pod">Гости на Картах про атмосферу написали 72 хороших отзыва — и ни одного плохого. Чёрный потолок, белый свет и разговор, если хочется поговорить.</p>
+        <ul class="fakty">
+          <li><span>Время</span>Каждый день с 10:00 до 21:00</li>
+          <li><span>Запись</span>Заранее — в Telegram, WhatsApp, по телефону или онлайн</li>
+          <li><span>Оплата</span>Наличные, карта, СБП, онлайн</li>
+          <li><span>Удобства</span>Вход доступен на коляске, можно прийти с собакой</li>
+          <li><span>Скидки</span>Дисконтная система для постоянных гостей</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="deti">
+    <div class="deti-foto"><img src="img/kids.webp" alt="Мальчик в кресле барбершопа ДОК на фоне росписи с барбером" width="700" height="1242" loading="lazy"></div>
+    <div class="deti-tekst poyav">
+      <h2 class="zag">Отцы и сыновья</h2>
+      <p>«Начал приводить сюда сына, теперь ходим как на семейную процедуру. Сын стричься не любит, но мастер нашёл к нему подход моментально» — так пишут в отзывах. Стрижём детей от 6 лет.</p>
+      <div class="cena-deti">800 ₽<small>детская стрижка любой сложности</small></div>
+      <button class="knopka" data-zapis>Записать себя и сына</button>
+    </div>
+  </section>
+
+  <section class="razdel" id="otzyvy">
+    <div class="wrap otzyvy-setka">
+      <div class="poyav">
+        <div class="liniya"></div>
+        <h2 class="zag">5,0 из 385 оценок</h2>
+        <p class="zag-pod">О чём чаще всего пишут гости — по разбору отзывов Яндекс Карт.</p>
+        <div class="aspekty">
+          <div class="aspekt"><div>Персонал<span>193 хвалят · 6 нет</span></div><i style="--p:97%"></i></div>
+          <div class="aspekt"><div>Барберы<span>142 хвалят · 6 нет</span></div><i style="--p:96%"></i></div>
+          <div class="aspekt"><div>Стрижка<span>107 хвалят · 7 нет</span></div><i style="--p:94%"></i></div>
+          <div class="aspekt"><div>Атмосфера<span>72 хвалят · 0 нет</span></div><i style="--p:100%"></i></div>
+        </div>
+      </div>
+      <div>
+        <div class="citaty">
+          <figure class="citata poyav"><q>Мой личный фаворит — мастер Оксана. Стригусь исключительно у неё. Безупречное чувство стиля, идеальные линии и внимание к деталям. Каждый раз результат превосходит ожидания.</q><figcaption class="kto"><b>Максим Б.</b>, август 2026</figcaption></figure>
+          <figure class="citata poyav"><q>Мастер Александр отлично подстриг и покрасил волосы. Смог подстроиться под мою длину волос — а они у меня длинные. Дал рекомендации по уходу.</q><figcaption class="kto"><b>Данил Ш.</b>, сентябрь 2026</figcaption></figure>
+          <figure class="citata poyav"><q>Отличное и роскошное место, где можно чувствовать себя комфортно. И поговорить можно, и спросить. Отдельная благодарность мастеру Екатерине!</q><figcaption class="kto"><b>Гость ДОК</b>, Яндекс Карты</figcaption></figure>
+        </div>
+        <a class="vse-otzyvy" href="https://yandex.ru/maps/org/dok/130121898008/reviews/" target="_blank" rel="noopener">Все 260 отзывов на Яндекс Картах</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="kontakty" id="kontakty">
+    <div class="kontakty-setka">
+      <div class="kontakty-tekst poyav">
+        <div class="liniya"></div>
+        <h2 class="zag">Как найти</h2>
+        <p class="adres">Бульвар Комарова, 20В/9А</p>
+        <p class="kak">Микрорайон Северный — ищите светящуюся вывеску Barber Shop.</p>
+        <div class="stroki">
+          <a href="tel:+79889991556"><span>Телефон</span><b>+7 988 999-15-56</b></a>
+          <a href="https://t.me/Barberdok1" target="_blank" rel="noopener"><span>Telegram</span><b>@Barberdok1</b></a>
+          <a href="https://wa.me/79889991556" target="_blank" rel="noopener"><span>WhatsApp</span><b>+7 988 999-15-56</b></a>
+          <a href="https://vk.ru/id878433761" target="_blank" rel="noopener"><span>ВКонтакте</span><b>Страница ДОК</b></a>
+          <div><span>Время</span><b>Ежедневно, 10:00–21:00</b></div>
+        </div>
+        <button class="knopka" data-zapis>Записаться</button>
+      </div>
+      <div class="karta">
+        <img src="img/vhod.webp" alt="Вход в барбершоп ДОК вечером: светящаяся вывеска Barber Shop на первом этаже" width="900" height="1200" loading="lazy">
+        <div class="marshrut"><span>Вывеска Barber Shop видна с бульвара — вход сразу под ней.</span><a class="knopka" href="https://yandex.ru/maps/?rtext=~47.28919%2C39.703288&amp;rtt=auto" target="_blank" rel="noopener">Построить маршрут</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap poyav">
+      <div>
+        <div class="liniya"></div>
+        <h2 class="zag">Свободное время есть сегодня?</h2>
+        <p class="zag-pod">Напишите в Telegram или WhatsApp — администратор подберёт мастера и время.</p>
+      </div>
+      <div class="final-pravo">
+        <div class="shest" id="shest" aria-hidden="true"></div>
+        <div class="deistviya">
+          <button class="knopka" data-zapis>Записаться</button>
+          <a class="knopka kontur" href="tel:+79889991556">+7 988 999-15-56</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="podval">
+  <div class="wrap">
+    <img src="img/logo.webp" alt="Значок барбершопа ДОК: традиции и качество, с 2023 года" width="400" height="426" loading="lazy">
+    <span>Барбершоп ДОК, Ростов-на-Дону, бульвар Комарова, 20В/9А</span>
+    <a href="#verh">Наверх</a>
+  </div>
+</footer>
+
+<div class="panel" id="panel">
+  <a class="knopka kontur" href="tel:+79889991556">Позвонить</a>
+  <button class="knopka" data-zapis>Записаться</button>
+</div>
+
+<div class="okno" id="okno" role="dialog" aria-modal="true" aria-labelledby="okno-zag">
+  <div class="okno-v">
+    <button class="zakryt" id="zakryt" aria-label="Закрыть">×</button>
+    <h3 id="okno-zag">Запись в ДОК</h3>
+    <p>Где вам удобнее? Ответим и подберём время.</p>
+    <div class="kanaly">
+      <a href="https://t.me/Barberdok1" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#2aabee"/><path d="M5.4 11.8l11-4.3c.5-.2 1 .1.8.9l-1.9 8.8c-.1.6-.5.8-1 .5l-2.9-2.1-1.4 1.3c-.2.2-.3.3-.6.3l.2-2.9 5.3-4.8c.2-.2 0-.3-.3-.1l-6.5 4.1-2.8-.9c-.6-.2-.6-.6.1-.8z" fill="#fff"/></svg>
+        <span><b>Telegram</b><small>@Barberdok1</small></span>
+      </a>
+      <a href="https://wa.me/79889991556?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%B2%20%D0%94%D0%9E%D0%9A" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#25d366"/><path d="M12 5.5a6.4 6.4 0 0 0-5.5 9.7l-.8 3 3.1-.8A6.4 6.4 0 1 0 12 5.5zm3.7 9c-.2.5-.9.9-1.3.9-.4 0-.8.2-2.6-.6-2.2-.9-3.5-3.1-3.6-3.3-.1-.1-.9-1.2-.9-2.2s.6-1.6.8-1.8c.2-.2.4-.3.6-.3h.4c.1 0 .3 0 .5.4l.6 1.5c.1.1.1.3 0 .4l-.3.4-.3.3c-.1.1-.2.2-.1.5.2.3.7 1.1 1.4 1.7.9.8 1.7 1.1 2 1.2.2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.5-.1l1.4.7c.2.1.4.2.4.3.1.1.1.5-.1 1z" fill="#fff"/></svg>
+        <span><b>WhatsApp</b><small>сообщение уже набрано</small></span>
+      </a>
+      <a href="tel:+79889991556">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#f4f2ea"/><path d="M9.2 6.6l1.2 2.6c.1.3 0 .6-.2.8l-.9.8a7.6 7.6 0 0 0 3.9 3.9l.8-.9c.2-.2.5-.3.8-.2l2.6 1.2c.3.1.5.5.4.8l-.4 1.5c-.1.4-.4.6-.8.6A10.4 10.4 0 0 1 6.3 7.4c0-.4.2-.7.6-.8l1.5-.4c.3-.1.7.1.8.4z" fill="#0e0f11"/></svg>
+        <span><b>Позвонить</b><small>+7 988 999-15-56, с 10 до 21</small></span>
+      </a>
+      <a href="https://yandex.ru/maps/org/dok/130121898008/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#fc3f1d"/><path d="M12 5.8a4.4 4.4 0 0 0-4.4 4.4c0 3.2 4.4 8 4.4 8s4.4-4.8 4.4-8A4.4 4.4 0 0 0 12 5.8zm0 6.1a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4z" fill="#fff"/></svg>
+        <span><b>Онлайн на Яндекс Картах</b><small>выбрать мастера и время самому</small></span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+
+  // открыто ли сейчас (время Ростова, UTC+3)
+  const sei = document.getElementById('seichas');
+  const t = new Date(Date.now() + (new Date().getTimezoneOffset() + 180) * 60000);
+  const min = t.getHours() * 60 + t.getMinutes();
+  if (min >= 600 && min < 1260) { sei.classList.add('otkryto'); sei.textContent = 'Сейчас открыто — до 21:00'; }
+  else sei.textContent = min < 600 ? 'Откроемся сегодня в 10:00' : 'Откроемся завтра в 10:00';
+
+  // шапка и панель на телефоне
+  const shapka = document.getElementById('shapka'), panel = document.getElementById('panel');
+  const priProkrutke = () => {
+    shapka.classList.toggle('temno', scrollY > 40);
+    panel.classList.toggle('vidna', scrollY > innerHeight * .7);
+  };
+  addEventListener('scroll', priProkrutke, { passive: true }); priProkrutke();
+
+  // окно записи
+  const okno = document.getElementById('okno');
+  let otkuda = null;
+  const otkryt = e => { otkuda = e.currentTarget; okno.classList.add('otkr'); okno.querySelector('.kanaly a').focus(); };
+  const zakryt = () => { okno.classList.remove('otkr'); otkuda && otkuda.focus(); };
+  document.querySelectorAll('[data-zapis]').forEach(b => b.addEventListener('click', otkryt));
+  document.getElementById('zakryt').addEventListener('click', zakryt);
+  okno.addEventListener('click', e => { if (e.target === okno) zakryt(); });
+  addEventListener('keydown', e => { if (e.key === 'Escape') zakryt(); });
+
+  // появление при прокрутке, у ленты работ — по очереди
+  const nab = new IntersectionObserver(zap => zap.forEach(z => {
+    if (!z.isIntersecting) return;
+    const el = z.target;
+    const nomer = el.closest('.lenta') ? [...el.parentNode.children].indexOf(el) % 5 : 0;
+    el.style.transitionDelay = nomer * 90 + 'ms';
+    el.classList.add('vidno'); nab.unobserve(el);
+  }), { threshold: .15, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.poyav').forEach(el => nab.observe(el));
+
+})();
+</script>
+<script type="module">
+// Эффекты библиотеки Shaders (WebGPU). Без WebGPU остаются обычное фото зала и CSS-столб.
+import { createShader, isWebGPUSupported } from 'https://cdn.jsdelivr.net/npm/shaders@4.0.4/js/+esm'
+
+const tiho = matchMedia('(prefers-reduced-motion: reduce)').matches
+if (!tiho && isWebGPUSupported()) {
+  const holst = (roditel) => { const c = document.createElement('canvas'); roditel.appendChild(c); return c }
+
+  // зеркало барбера: круглая линза над фото зала, едет за курсором и чуть увеличивает
+  const foto = document.querySelector('.ekran-foto')
+  if (matchMedia('(pointer: fine) and (min-width: 821px)').matches) {
+    const c = holst(foto)
+    createShader(c, { components: [
+      { type: 'ImageTexture', props: { url: new URL('img/hero.webp', location.href).href, objectFit: 'cover' }, children: [] },
+      { type: 'Glass', props: {
+          shape: { type: 'circleSDF', radius: 0.17 },
+          center: { type: 'mouse-position', smoothing: 0.12, momentum: 0.25 },
+          refraction: 0.9, thickness: 0.35, innerZoom: 1.35, aberration: 0.12,
+          highlight: 0.45, fresnel: 0.3, fresnelSoftness: 0.2, edgeSoftness: 0.05 }, children: [] },
+      { type: 'FilmGrain', props: { strength: 0.12, bias: 3 }, children: [] },
+    ] }, { onReady: () => {
+      c.classList.add('gotov')
+      const p = document.getElementById('podskazka')
+      setTimeout(() => p.classList.add('vidna'), 1800)
+      foto.addEventListener('mousemove', () => p.classList.remove('vidna'), { once: true })
+    }, onError: () => c.remove() })
+  }
+
+  // барбер-столб: полосы пелерины ДОК крутятся по диагонали
+  const shest = document.getElementById('shest')
+  const c2 = holst(shest)
+  createShader(c2, { components: [
+    { type: 'Stripes', props: { colorA: '#1f7356', colorB: '#f1f1ec', angle: -35, density: 7, balance: 0.5, softness: 0.1, speed: 0.35 }, children: [] },
+  ] }, { onReady: () => { c2.classList.add('gotov'); shest.classList.add('gpu') }, onError: () => c2.remove() })
+}
+</script>
+</body>
+</html>
